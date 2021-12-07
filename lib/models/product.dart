@@ -26,39 +26,39 @@ class Product {
     this.rating,
     this.category,
     this.productType,
-    required this.tagList,
+    this.tagList,
     this.createdAt,
     this.updatedAt,
     this.productApiUrl,
     this.apiFeaturedImage,
-    required this.productColors,
+    this.productColors,
   });
 
-  int? id;
-  Brand? brand;
-  String? name;
-  String? price;
+  int id;
+  Brand brand;
+  String name;
+  String price;
   dynamic priceSign;
   dynamic currency;
-  String? imageLink;
-  String? productLink;
-  String? websiteLink;
-  String? description;
-  double? rating;
-  String? category;
-  String? productType;
+  String imageLink;
+  String productLink;
+  String websiteLink;
+  String description;
+  double rating;
+  String category;
+  String productType;
   List<dynamic> tagList;
-  DateTime? createdAt;
-  DateTime? updatedAt;
-  String? productApiUrl;
-  String? apiFeaturedImage;
+  DateTime createdAt;
+  DateTime updatedAt;
+  String productApiUrl;
+  String apiFeaturedImage;
   List<ProductColor> productColors;
 
   var isFavorite = false.obs;
 
   factory Product.fromJson(Map<String, dynamic> json) => Product(
         id: json["id"],
-        brand: brandValues.map?[json["brand"]],
+        brand: brandValues.map[json["brand"]],
         name: json["name"],
         price: json["price"],
         priceSign: json["price_sign"],
@@ -81,7 +81,7 @@ class Product {
 
   Map<String, dynamic> toJson() => {
         "id": id,
-        "brand": brandValues.reverse?[brand],
+        "brand": brandValues.reverse[brand],
         "name": name,
         "price": price,
         "price_sign": priceSign,
@@ -94,8 +94,8 @@ class Product {
         "category": category == null ? null : category,
         "product_type": productType,
         "tag_list": List<dynamic>.from(tagList.map((x) => x)),
-        "created_at": createdAt?.toIso8601String(),
-        "updated_at": updatedAt?.toIso8601String(),
+        "created_at": createdAt.toIso8601String(),
+        "updated_at": updatedAt.toIso8601String(),
         "product_api_url": productApiUrl,
         "api_featured_image": apiFeaturedImage,
         "product_colors":
